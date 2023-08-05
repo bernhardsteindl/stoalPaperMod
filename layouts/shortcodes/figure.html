@@ -2,6 +2,7 @@
 {{ if not $image }}
   {{ $image = resources.Get (.Get "src") }}
 {{ end }}
+{{ if $image }}
 {{ $resized := $image }}
   {{ if ge $image.Width 720 }}
     {{ $resized = $image.Resize "720x webp" }}
@@ -34,3 +35,7 @@
         </figcaption>
     {{- end }}
 </figure>
+{{ else }}
+  <!-- Fehlermeldung oder alternativer Inhalt, wenn das Bild nicht gefunden wurde -->
+  <p>Picture not found</p>
+{{ end }}
