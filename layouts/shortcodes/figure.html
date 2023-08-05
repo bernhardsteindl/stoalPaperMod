@@ -2,7 +2,6 @@
 {{ if not $image }}
   {{ $image = resources.Get (.Get "src") }}
 {{ end }}
-{{ if $image }}
 {{ $resized := $image }}
   {{ if ge $image.Width 720 }}
     {{ $resized = $image.Resize "720x webp" }}
